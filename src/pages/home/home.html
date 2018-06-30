@@ -1,18 +1,85 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>CarWashr</ion-title>
+    <ion-buttons *ngIf="title != undefined" end>
+     <button ion-button danger (click)="cancelOrder()">
+       Cancel
+     </button>
+   </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content *ngIf="active == true" padding>
+  <ion-card>
+    <ion-card-header>
+      Worker Name is on the way!
+    </ion-card-header>
+    <ion-card-content>
+      <h6>{{(activeOrder | async)?.title}} - ${{(activeOrder | async)?.price}}</h6>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+  <img src="https://i0.wp.com/www.calvary.edu/wp-content/uploads/2016/08/person-placeholder.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      Worker Name
+      </ion-card-title>
+    <p>
+      Contact
+    </p>
+  </ion-card-content>
+</ion-card>
+<div padding-top>
+  <button ion-button block color="danger" (click)="cancelOrder()">Cancel Order</button>
+</div>
+</ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<ion-content *ngIf="title == undefined && active == false" class="card-background-page">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <!-- <h2 padding text-center style="color:grey">Choose a wash!</h2> -->
+
+  <ion-card style="background: #E27D60" (click)="selectService(1)">
+    <div class="card-title">Basic Scrub</div>
+    <div class="card-subtitle">41 Reviews</div>
+  </ion-card>
+
+  <ion-card style="background: #84CCC9" (click)="selectService(2)">
+    <div class="card-title">Basic Scrub Plus</div>
+    <div class="card-subtitle">64 Reviews</div>
+  </ion-card>
+
+  <ion-card style="background: #E7A67B">
+    <div class="card-title">Deep Scrub</div>
+    <div class="card-subtitle">72 Reviews</div>
+  </ion-card>
+
+  <ion-card style="background: #C38D9E">
+    <div class="card-title">Luxury Scrub</div>
+    <div class="card-subtitle">28 Reviews</div>
+  </ion-card>
+
+</ion-content>
+
+<ion-content *ngIf="title != undefined" class="card-background-page">
+  <div class="container">
+    <div class="order-card" padding>
+      <h6>{{title}}</h6>
+      <p>Awesome wash for exterior of car.</p>
+      <i class="fas fa-car"></i>
+      <h5 style="color:dimgrey" *ngIf="title === 'Basic Scrub'">${{(price | async)?.basic}}</h5>
+      <h5 style="color:dimgrey" *ngIf="title === 'Basic Scrub Plus'">${{(price | async)?.basicplus}}</h5>
+      <div padding>
+        <button ion-button block primary (click)="confirmOrder()">Confirm Order</button>
+      </div>
+    </div>
+  </div>
+<!--
+  <input id="pac-input" [(ngModel)]="search" class="controls" type="text" placeholder="Search Box"> -->
+  <div #map id="map">
+    <ion-spinner name="circles"></ion-spinner>
+  </div>
+
 </ion-content>

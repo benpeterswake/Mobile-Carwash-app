@@ -14,3 +14,15 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toast-success{
+  > div{
+     background-color:#5CB75C!important;
+  }
+}
+
+.toast-error{
+  > div{
+     background-color:#E84B3A!important;
+  }
+}

@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div padding class="logo">
+      <i class="fas fa-car"></i>
+      <p>Join the CarWasher community now and get a free CarWash Basic Scrub* with your first purchase!</p>
+  </div>
+
+  <ion-item style="border-top:1px solid lightgrey">
+     <ion-label color="primary">First Name</ion-label>
+     <ion-input type="text" [(ngModel)]="profile.firstName" placeholder="First Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Last Name</ion-label>
+    <ion-input type="text" [(ngModel)]="profile.lastName" placeholder="Last Name"></ion-input>
+  </ion-item>
+  <ion-item>
+     <ion-label color="primary">Email</ion-label>
+     <ion-input type="email" [(ngModel)]="email" placeholder="Email Address" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" placeholder="Password" required></ion-input>
+  </ion-item>
+
+  <div style="margin-top:35px;">
+   <button ion-button full primary (click)="signUp()">Sign Up</button>
+  </div>
+
+</ion-content>

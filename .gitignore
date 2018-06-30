@@ -12,6 +12,8 @@ log.txt
 .vscode/
 npm-debug.log*
 
+src/app/firebase.cred.ts
+
 .idea/
 .sourcemaps/
 .sass-cache/

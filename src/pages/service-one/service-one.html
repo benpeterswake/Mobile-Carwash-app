@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides style="height:250px;">
+    <ion-slide>
+      <img [src]="imgs.img1" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img [src]="imgs.img2" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img [src]="imgs.img3" alt="">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><ion-icon name="time"></ion-icon> {{this.time}}</ion-col>
+      <ion-col col-6><ion-icon name="cash"></ion-icon> {{this.price}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div padding>
+      <h5>Overview</h5>
+      <p>{{overview}}</p>
+      <button ion-button block (click)="orderService()">Order  Service</button>
+  </div>
+
+  <div padding>
+      <h5>Reviews</h5>
+      <p text-center padding>No reviews yet...</p>
+  </div>
+
+
+</ion-content>
